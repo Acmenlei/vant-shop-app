@@ -8,7 +8,7 @@
     >
       <van-tabbar-item
         v-for="(route, index) in TabbarRoutes.children"
-        :icon="route.name && route.meta.icon"
+        :icon="route.name && route.meta && route.meta.icon"
         :to="route.path"
       >
         <span v-if="route.name">{{ route.name }}</span>
