@@ -1,10 +1,10 @@
 <template>
   <swiper-image />
   <menu-grid />
-  <li>#</li>
-  <li>#</li>
-  <li>#</li>
-  <li>#</li>
+  <li>2</li>
+  <li>2</li>
+  <li>2</li>
+  <li>2</li>
   <li>#</li>
   <li>#</li>
   <li>#</li>

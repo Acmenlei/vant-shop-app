@@ -31,7 +31,6 @@ const TabbarRoutes: RouteRecordRaw = {
             path: '/mid',
             meta: {
                 code: 'mid',
-                icon: 'plus',
                 title: "发布"
             },
             component: () => import('@/pages/shop/index.vue')

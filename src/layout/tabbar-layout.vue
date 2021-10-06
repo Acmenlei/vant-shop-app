@@ -8,10 +8,14 @@
     >
       <van-tabbar-item
         v-for="(route, index) in TabbarRoutes.children"
-        :icon="route.meta.icon"
+        :icon="route.name && route.meta.icon"
         :to="route.path"
-        >{{ route.name }}</van-tabbar-item
       >
+        <span v-if="route.name">{{ route.name }}</span>
+        <div v-else>
+          <img width="20" src="../assets/logo.png" alt="" />
+        </div>
+      </van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
