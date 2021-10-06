@@ -1,0 +1,37 @@
+<template>
+  <van-swipe
+    class="my-swipe"
+    :autoplay="3000"
+    lazy-render
+    height="200"
+    indicator-color="white"
+  >
+    <van-swipe-item
+    v-for="(item, index) in 5"
+    :key="index"
+      ><van-image
+        width="100%"
+        height="100%"
+        fit="cover"
+        src="https://img.yzcdn.cn/vant/cat.jpeg"
+    /></van-swipe-item>
+  </van-swipe>
+</template>
+
+<script lang='ts'>
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "swiper-image",
+});
+</script>
+
+<style lang='scss' scoped>
+.my-swipe .van-swipe-item {
+  color: #fff;
+  font-size: 20px;
+  line-height: 200px;
+  text-align: center;
+  background-color: #e418a0;
+}
+</style>
