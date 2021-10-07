@@ -1,25 +1,38 @@
 <template>
-  <van-nav-bar
-    safe-area-inset-top
-    placeholder
-    z-index="99"
-    :title="title"
-    left-arrow
-    v-show="!NavigatorWhiteList.includes(path)"
-  >
-  </van-nav-bar>
-  <van-sticky offset-top="0">
-  <van-row style="background: white">
-    <van-col span="2"><van-icon color="var(--van-icon-color)" size="25" name="search" /></van-col>
-    <van-col span="20"
-      ><van-search
-        left-icon="``"
-        v-model="value"
-        placeholder="请输入搜索关键词"
-    /></van-col>
-    <van-col span="2"><van-icon color="var(--van-icon-color)" size="25" name="user-o" /></van-col>
-  </van-row>
-  </van-sticky>
+  <div class="my-nav">
+    <van-nav-bar
+      safe-area-inset-top
+      placeholder
+      z-index="99"
+      :title="title"
+      v-show="!NavigatorWhiteList.includes(path)"
+    >
+    </van-nav-bar>
+    <van-sticky offset-top="0">
+      <van-row style="background: white; padding: 0 12px;height: 3.2rem">
+        <van-col span="2">
+          <van-icon
+            name="credit-pay"
+            color="var(--custom-primary-color)"
+            size="25"
+          />
+        </van-col>
+        <van-col span="20"
+          ><van-search
+            right-icon="search"
+            left-icon="''"
+            v-model="value"
+            placeholder="请输入搜索关键词"
+        /></van-col>
+        <van-col span="2"
+          ><van-icon
+            color="var(--custom-primary-color)"
+            size="25"
+            name="user-o"
+        /></van-col>
+      </van-row>
+    </van-sticky>
+  </div>
 </template>
 
 <script lang='ts'>
@@ -46,8 +59,22 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
-.van-col {
-  text-align: center;
-  align-self: center;
+.my-nav {
+  .van-col {
+    text-align: center;
+    align-self: center;
+  }
+  .van-search {
+    border: 1px solid var(--custom-primary-color);
+    padding: 0;
+    border-radius: 5px;
+    margin: 8px 15px;
+  }
+  .van-icon {
+    border: 1px solid #000;
+    border-radius: 50%;
+    border: 1px solid var(--custom-primary-color);
+    padding: 4px;
+  }
 }
 </style>

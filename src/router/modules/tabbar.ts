@@ -17,14 +17,14 @@ const TabbarRoutes: RouteRecordRaw = {
             component: () => import('@/pages/home/index.vue')
         },
         {
-            name: '商城',
-            path: '/shop',
+            name: '设计',
+            path: '/design',
             meta: {
-                code: 'shop',
-                icon: 'search',
-                title: "个性化定制商城"
+                code: 'design',
+                icon: 'sign',
+                title: "设计师定制"
             },
-            component: () => import('@/pages/shop/index.vue')
+            component: () => import('@/pages/design/index.vue')
         },
         {
             name: "",

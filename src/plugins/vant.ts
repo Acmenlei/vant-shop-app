@@ -2,13 +2,13 @@ import { App } from 'vue';
 // import "vant/lib/index.css"
 import {
     Form, Field, CellGroup, Button, Tabbar, TabbarItem, NavBar, Swipe, SwipeItem, Grid, GridItem, Icon,
-    Image, Search, Col, Row, Sticky, Divider
+    Image, Search, Col, Row, Sticky, Divider, Sidebar, SidebarItem, List
 }
     from "vant"
 
 const components = [
     Form, Field, CellGroup, Button, Tabbar, TabbarItem, NavBar, Swipe, SwipeItem, Grid, GridItem, Icon,
-    Image, Search, Col, Row, Sticky, Divider
+    Image, Search, Col, Row, Sticky, Divider, Sidebar, SidebarItem, List
 ]
 
 function componentRegister(Vue: App) {

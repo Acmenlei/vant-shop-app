@@ -3,7 +3,7 @@
     <van-tabbar
       placeholder
       route
-      active-color="var(--van-nav-bar-background-color)"
+      active-color="var(--custom-primary-color)"
       v-model="active"
     >
       <van-tabbar-item
