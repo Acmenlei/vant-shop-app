@@ -28,13 +28,13 @@ const TabbarRoutes: RouteRecordRaw = {
         },
         {
             name: "",
-            path: '/mid',
+            path: '/publish',
             meta: {
-                code: 'mid',
+                code: 'publish',
                 icon: "plus",
                 title: "发布"
             },
-            component: () => import('@/pages/shop/index.vue')
+            component: () => import('@/pages/publish/index.vue')
         },
         {
             name: '社区',

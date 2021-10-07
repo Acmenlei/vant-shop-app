@@ -3,7 +3,7 @@
     <van-tabbar
       placeholder
       route
-      active-color="var(--custom-primary-color)"
+      active-color="var(--van-nav-bar-background-color)"
       v-model="active"
     >
       <van-tabbar-item
@@ -12,9 +12,7 @@
         :to="route.path"
       >
         <span v-if="route.name">{{ route.name }}</span>
-        <div v-else>
-          <img width="20" src="../assets/logo.png" alt="" />
-        </div>
+        <img v-else width="20" src="../assets/logo.png" alt="" />
       </van-tabbar-item>
     </van-tabbar>
   </div>

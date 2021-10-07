@@ -9,12 +9,19 @@
     >
     </van-nav-bar>
     <van-sticky offset-top="0">
-      <van-row style="background: white; padding: 0 12px;height: 3.2rem">
+      <van-row
+        :style="{
+          background: NavigatorWhiteList.includes(path)
+            ? 'var(--custom-primary-color)'
+            : 'white',
+        }"
+      >
         <van-col span="2">
           <van-icon
             name="credit-pay"
-            color="var(--custom-primary-color)"
+            :color="NavigatorWhiteList.includes(path) ? 'white' : 'var(--custom-primary-color)'"
             size="25"
+            :style="`border-color: ${ NavigatorWhiteList.includes(path) ? 'white' : 'var(--custom-primary-color)'}`"
           />
         </van-col>
         <van-col span="20"
@@ -26,7 +33,7 @@
         /></van-col>
         <van-col span="2"
           ><van-icon
-            color="var(--custom-primary-color)"
+            :color="NavigatorWhiteList.includes(path) ? 'white' : 'var(--custom-primary-color)'"
             size="25"
             name="user-o"
         /></van-col>
@@ -40,14 +47,14 @@ import { NavigatorWhiteList } from "@/common/white";
 import { defineComponent, toRefs } from "vue";
 import { useRoute } from "vue-router";
 import { useTitle, useSearch } from "../common/navigator";
-// import { Toast } from "vant";
+
 export default defineComponent({
   name: "header-layout",
   setup() {
     let route = useRoute();
     const { title } = useTitle();
     const { value } = useSearch();
-
+    
     return {
       title,
       value,
@@ -60,20 +67,23 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 .my-nav {
-  .van-col {
-    text-align: center;
-    align-self: center;
+  .van-row {
+    padding: 0 12px;
+    height: 3.2rem;
+    .van-col {
+      text-align: center;
+      align-self: center;
+    }
   }
   .van-search {
-    border: 1px solid var(--custom-primary-color);
+    // border: 1px solid var(--custom-primary-color);
     padding: 0;
     border-radius: 5px;
     margin: 8px 15px;
   }
   .van-icon {
-    border: 1px solid #000;
     border-radius: 50%;
-    border: 1px solid var(--custom-primary-color);
+    border: 1px solid;
     padding: 4px;
   }
 }
