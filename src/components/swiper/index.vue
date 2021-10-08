@@ -4,7 +4,6 @@
     :autoplay="3000"
     lazy-render
     height="200"
-    indicator-color="white"
   >
     <van-swipe-item
     v-for="(item, index) in 5"

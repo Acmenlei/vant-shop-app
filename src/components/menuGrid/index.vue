@@ -1,14 +1,33 @@
 <template>
-  <van-grid square class="home-grid-menu">
-    <van-grid-item v-for="value in 8" :key="value" icon="photo-o" text="Menu" />
+  <van-grid :column-num="data.length" class="home-grid-menu">
+    <van-grid-item
+      v-for="item in data"
+      :key="item"
+      :icon="item.meta.icon"
+      icon-color="var(--custom-primary-color)"
+      text-color="var(--custom-primary-color)"
+      :text="item.name"
+    />
   </van-grid>
 </template>
 
 <script lang='ts'>
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 
 export default defineComponent({
   name: "menu-grid",
+  props: {
+    data: {
+      type: Array,
+      default: () => [],
+      required: true,
+    },
+  },
+  setup(props) {
+    return {
+      ...toRefs(props),
+    };
+  },
 });
 </script>
 

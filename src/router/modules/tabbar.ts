@@ -17,14 +17,14 @@ const TabbarRoutes: RouteRecordRaw = {
             component: () => import('@/pages/home/index.vue')
         },
         {
-            name: '设计',
-            path: '/design',
+            name: '消息',
+            path: '/im',
             meta: {
-                code: 'design',
-                icon: 'sign',
-                title: "设计师定制"
+                code: 'im',
+                icon: 'chat-o',
+                title: "消息列表"
             },
-            component: () => import('@/pages/design/index.vue')
+            component: () => import('@/pages/im/index.vue')
         },
         {
             name: "",
@@ -37,21 +37,21 @@ const TabbarRoutes: RouteRecordRaw = {
             component: () => import('@/pages/publish/index.vue')
         },
         {
-            name: '社区',
-            path: '/community',
+            name: '购物车',
+            path: '/shopCart',
             meta: {
-                code: 'community',
-                icon: 'friends-o',
-                title: "社区讨论"
+                code: 'shopCart',
+                icon: 'cart',
+                title: "购物车"
             },
-            component: () => import('@/pages/community/index.vue')
+            component: () => import('@/pages/shopCart/index.vue')
         },
         {
             name: '我的',
             path: '/profile',
             meta: {
                 code: 'profile',
-                icon: 'setting-o',
+                icon: 'user-o',
                 title: '个人中心'
             },
             component: () => import('@/pages/profile/index.vue')

@@ -12,7 +12,9 @@
         :to="route.path"
       >
         <span v-if="route.name">{{ route.name }}</span>
-        <img v-else width="20" src="../assets/logo.png" alt="" />
+        <div v-else class="publish">
+          <van-icon size="20" color="white" name="plus" />
+        </div>
       </van-tabbar-item>
     </van-tabbar>
   </div>
@@ -31,4 +33,9 @@ export default defineComponent({
 });
 </script>
 <style lang='scss' scoped>
+.publish {
+  background: var(--custom-primary-color);
+  padding: .6rem;
+  border-radius: 50%;
+}
 </style>
