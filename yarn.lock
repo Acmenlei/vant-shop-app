@@ -1010,6 +1010,11 @@ upper-case@^2.0.2:
   dependencies:
     tslib "^2.0.3"
 
+v3-waterfall@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/v3-waterfall/-/v3-waterfall-1.1.0.tgz#a3e32b1f8ac334af596c5d4c7d5aa538c8d49dff"
+  integrity sha512-KDNA3f02WwmvBeOsRaffHVULSyaUhislghW+2LzKelvMun8Mat7+itXobdVTKAbfR6DQZlrHn9AtQZNFLfjerw==
+
 vant@^3.2.4:
   version "3.2.4"
   resolved "https://registry.npmjs.org/vant/-/vant-3.2.4.tgz#0d9fd0c58a09d56b91c4d5410fee0cdb989c8eb8"

@@ -9,3 +9,8 @@ export const routerPush = (routePath: string) => {
 export const routerReplace = (routePath: string) => {
       router.replace(routePath);
 }
+
+// 路由回退
+export const routerBack = () => {
+      router.back();
+}

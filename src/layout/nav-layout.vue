@@ -1,27 +1,31 @@
 <template>
   <div class="my-nav">
     <van-nav-bar
+      :left-arrow="hasExistTabbarPath"
+      :left-text="hasExistTabbarPath ? '返回' : ''"
+      @click-left="onBack"
       safe-area-inset-top
       placeholder
       z-index="99"
       :title="title"
-      v-show="!NavigatorWhiteList.includes(path)"
+      v-show="!hasExistNavPath"
     >
     </van-nav-bar>
     <van-sticky offset-top="0">
       <van-row
         :style="{
-          background: NavigatorWhiteList.includes(path)
-            ? 'var(--custom-primary-color)'
-            : 'white',
+          background: hasExistNavPath ? 'var(--custom-primary-color)' : 'white',
         }"
+        v-show="!hasExistSearchPath"
       >
         <van-col span="2">
           <van-icon
             name="credit-pay"
-            :color="NavigatorWhiteList.includes(path) ? 'white' : 'var(--custom-primary-color)'"
+            :color="hasExistNavPath ? 'white' : 'var(--custom-primary-color)'"
             size="25"
-            :style="`border-color: ${ NavigatorWhiteList.includes(path) ? 'white' : 'var(--custom-primary-color)'}`"
+            :style="`border-color: ${
+              hasExistNavPath ? 'white' : 'var(--custom-primary-color)'
+            }`"
           />
         </van-col>
         <van-col span="20"
@@ -33,7 +37,7 @@
         /></van-col>
         <van-col span="2"
           ><van-icon
-            :color="NavigatorWhiteList.includes(path) ? 'white' : 'var(--custom-primary-color)'"
+            :color="hasExistNavPath ? 'white' : 'var(--custom-primary-color)'"
             size="25"
             name="user-o"
         /></van-col>
@@ -43,23 +47,38 @@
 </template>
 
 <script lang='ts'>
-import { NavigatorWhiteList } from "@/common/white";
-import { defineComponent, toRefs } from "vue";
+import {
+  NavigatorWhiteRoutes,
+  SearchBarWhiteRoutes,
+  TabbarWhiteRoutes,
+} from "@/common/white";
+import { computed, defineComponent, toRefs } from "vue";
 import { useRoute } from "vue-router";
-import { useTitle, useSearch } from "../common/navigator";
+import { useNavigator, useSearch } from "../common/navigator";
 
 export default defineComponent({
   name: "header-layout",
   setup() {
-    let route = useRoute();
-    const { title } = useTitle();
+    const route = useRoute();
+    const { title, onBack } = useNavigator();
     const { value } = useSearch();
-    
+    /* 计算属性 */
+    const hasExistNavPath = computed(() =>
+      NavigatorWhiteRoutes.includes(route.path)
+    );
+    const hasExistTabbarPath = computed(() =>
+      TabbarWhiteRoutes.includes(route.path)
+    );
+    const hasExistSearchPath = computed(() =>
+      SearchBarWhiteRoutes.includes(route.path)
+    );
     return {
       title,
       value,
-      ...toRefs(route),
-      NavigatorWhiteList,
+      hasExistNavPath,
+      hasExistTabbarPath,
+      hasExistSearchPath,
+      onBack,
     };
   },
 });

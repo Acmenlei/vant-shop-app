@@ -1,5 +1,5 @@
 <template>
-  <div id="tabbar">
+  <div id="tabbar" v-show="!TabbarWhiteRoutes.includes(path)">
     <van-tabbar
       placeholder
       route
@@ -21,21 +21,25 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, toRefs } from "vue";
 import TabbarRoutes from "@/router/modules/tabbar";
+import { TabbarWhiteRoutes } from "@/common/white";
+import { useRoute } from "vue-router";
 
 export default defineComponent({
   name: "tabbar-layout",
   setup() {
     const active = ref(0);
-    return { active, TabbarRoutes };
+    const route = useRoute();
+
+    return { active, TabbarRoutes, TabbarWhiteRoutes, ...toRefs(route) };
   },
 });
 </script>
 <style lang='scss' scoped>
 .publish {
   background: var(--custom-primary-color);
-  padding: .6rem;
+  padding: 0.6rem;
   border-radius: 50%;
 }
 </style>

@@ -1,7 +1,7 @@
 import router from "@/router"
-import { useTitle } from "./common/navigator"
+import { useNavigator } from "./common/navigator"
 
-const { setTitle } = useTitle();
+const { setTitle } = useNavigator();
 
 router.beforeEach((to, from, next) => {
     setTitle((to.meta as any).title);

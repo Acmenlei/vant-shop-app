@@ -1,10 +1,10 @@
-import Layout from "@/layout/basic-layout.vue"
+// import Layout from ""
 import { RouteRecordRaw } from "vue-router"
 
 const PagesRoutes: RouteRecordRaw = {
     name: 'menuGrid',
     path: '/menuGrid',
-    component: Layout,
+    component: () => import("@/layout/basic-layout.vue"),
     children: [
         {
             name: '设计师定制',

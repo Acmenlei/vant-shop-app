@@ -1,10 +1,10 @@
-import Layout from "@/layout/basic-layout.vue"
+// import Layout from 
 import { RouteRecordRaw } from "vue-router"
 
 const TabbarRoutes: RouteRecordRaw = {
     name: 'root',
     path: '/',
-    component: Layout,
+    component: () => import("@/layout/basic-layout.vue"),
     children: [
         {
             name: '首页',
