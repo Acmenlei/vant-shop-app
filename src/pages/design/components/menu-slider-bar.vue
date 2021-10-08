@@ -7,14 +7,13 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, ref } from "vue";
-import { Toast } from "vant";
+import { defineComponent } from "vue";
+import { useSliderBar } from "../scritps/slider-bar"
 
 export default defineComponent({
   name: "menu-slider-bar",
   setup() {
-    const active = ref(0);
-    const onChange = (index: number) => Toast(`标签名 ${index + 1}`);
+    const { active, onChange } = useSliderBar();
     return {
       active,
       onChange,

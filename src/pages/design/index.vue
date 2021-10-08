@@ -3,49 +3,46 @@
     <van-sticky offset-top="3.2rem">
       <menu-slider-bar />
     </van-sticky>
-    <van-list
-      class="design-container"
-      v-model:loading="loading"
-      :finished="finished"
-      finished-text="没有更多了"
-      @load="onLoad"
-    >
-      <div class="design-item" v-for="item of list" :key="item">外套{{ item }}</div>
-    </van-list>
+    <div v-if="active == 0">
+      <types />
+    </div>
+    <div v-if="active == 1">
+      <clothes-style />
+    </div>
+    <div v-if="active == 2">
+      <van-list
+        class="design-container"
+        v-model:loading="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
+        <div class="design-item" v-for="item of list" :key="item">
+          设计师{{ item }}
+        </div>
+      </van-list>
+    </div>
   </div>
 </template>
 
 <script lang='ts'>
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent } from "vue";
 import MenuSliderBar from "./components/menu-slider-bar.vue";
+import ClothesStyle from "./components/clothes-style.vue";
+// import Designer from "./components/designer.vue";
+import Types from "./components/types.vue";
+import { useSliderBar } from "./scritps/slider-bar";
+import { useDesign } from "./scritps";
 
 export default defineComponent({
-  components: { MenuSliderBar },
+  components: { MenuSliderBar, ClothesStyle, Types },
   name: "designer",
   setup() {
-    const list = reactive<any>([]);
-    const loading = ref(false);
-    const finished = ref(false);
-
-    const onLoad = () => {
-      // 异步更新数据
-      // setTimeout 仅做示例，真实场景中一般为 ajax 请求
-      setTimeout(() => {
-        for (let i = 0; i < 10; i++) {
-          list.push(list.length + 1);
-        }
-
-        // 加载状态结束
-        loading.value = false;
-
-        // 数据全部加载完成
-        if (list.length >= 40) {
-          finished.value = true;
-        }
-      }, 1000);
-    };
+    const { active } = useSliderBar();
+    const { onLoad, list, loading, finished } = useDesign();
 
     return {
+      active,
       list,
       onLoad,
       loading,
@@ -55,10 +52,9 @@ export default defineComponent({
 });
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss' >
 #design {
   display: flex;
-
   .design-container {
     margin-left: 1rem;
     display: grid;
@@ -69,8 +65,7 @@ export default defineComponent({
       line-height: 8rem;
       background: #fff;
       width: 8rem;
-      height: 8rem;
-      margin: .5rem;
+      margin: 0.5rem;
     }
   }
 }
