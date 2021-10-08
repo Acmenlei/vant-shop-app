@@ -82,7 +82,7 @@ const PagesRoutes: RouteRecordRaw = {
             meta: {
                 code: 'personalOrder',
                 icon: 'friends-o',
-                title: "FU工厂"
+                title: "个性化点餐"
             },
             component: () => import('@/pages/personalOrder/index.vue')
         },
@@ -92,7 +92,7 @@ const PagesRoutes: RouteRecordRaw = {
             meta: {
                 code: 'customDomain',
                 icon: 'friends-o',
-                title: "FU工厂"
+                title: "定制领域选择"
             },
             component: () => import('@/pages/customDomain/index.vue')
         }

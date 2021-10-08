@@ -7,6 +7,7 @@
       icon-color="var(--custom-primary-color)"
       text-color="var(--custom-primary-color)"
       :text="item.name"
+      :to="item.path"
     />
   </van-grid>
 </template>
