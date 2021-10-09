@@ -1,8 +1,11 @@
 <template>
   <div class="goods-price">
-    <div class="goods-amount">￥{{ 150 }}元</div>
+    <div class="goods-amount">
+      <van-image width="28" height="28" fit="cover" src="/src/assets/FU.jpg"></van-image>
+      {{ 150 }}元
+    </div>
     <div class="goods-copy-right">
-      <p>版权 25元</p>
+      <span>版权 25元</span>
       <small>只限单次生产</small>
     </div>
   </div>
@@ -28,7 +31,7 @@ export default defineComponent({
   .goods-amount {
     border: 1px solid var(--custom-primary-color);
     padding: 0.5rem 1rem;
-    font-size: 40px;
+    font-size: 20px;
     color: #567;
   }
   .goods-copy-right {
@@ -37,6 +40,13 @@ export default defineComponent({
     text-align: center;
     margin-left: 1rem;
     background: var(--custom-primary-color);
+    span {
+      font-size: 13px;
+    }
+    small {
+      font-size: 12px;
+      display: block;
+    }
   }
 }
 </style>

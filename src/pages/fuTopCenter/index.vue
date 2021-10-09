@@ -6,15 +6,26 @@
         name="user-circle-o"
         color="var(--custom-primary-color)"
       />
-      <div class="coins-count">金币{{ 160 }}</div>
+      <div class="coins-count">
+        <van-image
+          round
+          width="20"
+          height="20"
+          fit="cover"
+          src="/src/assets/FU.jpg"
+        />160
+      </div>
     </div>
     <div class="user-icons-logo">
-      <van-image src="/src/assets/fu-coins.png"/>
+      <van-image src="/src/assets/fu-coins.png" />
     </div>
     <div class="topCenter-images">
-      <van-image src="/src/assets/fu-coins-image.png"/>
-      <van-image src="/src/assets/fu-coins-image.png"/>
-      <van-image src="/src/assets/fu-coins-image.png"/>
+      <van-image height="10rem" width="32.2%" src="/src/assets/coins-55.png" />
+      <van-image height="10rem" width="32.2%" src="/src/assets/coins-120.png" />
+      <van-image height="10rem" width="32.2%" src="/src/assets/coins-250.png" />
+      <van-image height="10rem" width="32.2%" src="/src/assets/coins-600.png" />
+      <van-image height="10rem" width="32.2%" src="/src/assets/coins-1000.png" />
+      <van-image height="10rem" width="32.2%" src="/src/assets/gitf.jpg" />
     </div>
   </div>
 </template>
@@ -38,6 +49,9 @@ export default defineComponent({
   }
   .topCenter-images {
     margin-top: 2rem;
+    .van-image {
+      margin-right: 0.2rem;
+    }
   }
   .user-icons {
     display: flex;

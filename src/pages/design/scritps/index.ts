@@ -1,7 +1,7 @@
 import { reactive, ref } from "vue"
 
-export function useDesign() {
-    const list = reactive<any>([]);
+export function useDesign(data: any) {
+    const list = reactive<any>(data);
     const loading = ref(false);
     const finished = ref(false);
 
@@ -9,7 +9,7 @@ export function useDesign() {
         // setTimeout 仅做示例，真实场景中一般为 ajax 请求
         setTimeout(() => {
             for (let i = 0; i < 10; i++) {
-                list.push(list.length + 1);
+                list.push(...list.slice(1, 3));
             }
             // 加载状态结束
             loading.value = false;

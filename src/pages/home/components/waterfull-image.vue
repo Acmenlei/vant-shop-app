@@ -6,7 +6,9 @@
     finished-text="没有更多了"
     @load="onLoad"
   >
-    <img
+    <van-image
+      width="98%"
+      fit="cover"
       class="waterfull-item"
       v-for="item in list"
       :key="item"
@@ -23,19 +25,16 @@ export default defineComponent({
   setup() {
     const list = reactive<any>([
       {
-        src: "/src/assets/logo.png",
+        src: "/src/assets/00-1.jpg",
       },
       {
-        src: "/src/assets/logo.png",
+        src: "/src/assets/swiper5.jpg",
       },
       {
-        src: "/src/assets/logo.png",
+        src: "/src/assets/swiper4.jpg",
       },
       {
-        src: "/src/assets/logo.png",
-      },
-      {
-        src: "/src/assets/logo.png",
+        src: "/src/assets/00-1.jpg",
       },
     ]);
     const loading = ref(false);
@@ -44,7 +43,16 @@ export default defineComponent({
     const onLoad = () => {
       setTimeout(() => {
         for (let i = 0; i < 10; i++) {
-          list.push(list.length + 1);
+          list.push(
+            ...[
+              {
+                src: "/src/assets/00-1.jpg",
+              },
+              {
+                src: "/src/assets/swiper5.jpg",
+              },
+            ]
+          );
         }
         // 加载状态结束
         loading.value = false;

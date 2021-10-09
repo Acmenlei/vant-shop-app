@@ -1,9 +1,9 @@
 <template>
   <div class="operator">
-      <van-button color="var(--custom-primary-color)" icon="shopping-cart-o">购物车</van-button>
-      <van-button color="var(--custom-primary-color)" icon="like-o">点赞</van-button>
-      <van-button color="var(--custom-primary-color)" icon="star-o">收藏</van-button>
-      <van-button color="var(--custom-primary-color)" icon="arrow">转发</van-button>
+      <van-button round color="var(--custom-primary-color)" icon="shopping-cart-o">购物车</van-button>
+      <van-button round color="var(--custom-primary-color)" icon="like-o">点赞</van-button>
+      <van-button round color="var(--custom-primary-color)" icon="star-o">收藏</van-button>
+      <van-button round color="var(--custom-primary-color)" icon="arrow">转发</van-button>
   </div>
 </template>
 

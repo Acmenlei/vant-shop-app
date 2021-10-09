@@ -26,6 +26,7 @@ export default defineComponent({
 <style lang='scss' scoped>
 .goods-author {
   .author {
+    margin-top: 1rem;
     display: flex;
     align-items: flex-end;
     .author-name {
@@ -34,6 +35,7 @@ export default defineComponent({
   }
   .goods-introduce {
     color: #999;
+    font-size: 13px;
   }
 }
 </style>

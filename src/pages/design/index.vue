@@ -26,7 +26,12 @@
             v-for="item of list"
             :key="item"
           >
-            设计师{{ item }}
+            <van-image fit="contain" width="98%" :src="item.src"></van-image>
+            <van-icon
+              size="20"
+              color="var(--custom-primary-color)"
+              name="user-o"
+            /><span>{{ item.name }}</span>
           </div>
         </van-list>
       </van-col>
@@ -48,8 +53,26 @@ export default defineComponent({
   components: { MenuSliderBar, ClothesStyle, Types },
   name: "designer",
   setup() {
+    let data = [
+      {
+        name: "张三",
+        src: "/src/assets/4-1.jpg",
+      },
+      {
+        name: "李四",
+        src: "/src/assets/4-2.jpg",
+      },
+      {
+        name: "王五",
+        src: "/src/assets/4-3.jpg",
+      },
+      {
+        name: "赵六",
+        src: "/src/assets/4-4.jpg",
+      },
+    ];
     const { active } = useSliderBar();
-    const { onLoad, list, loading, finished } = useDesign();
+    const { onLoad, list, loading, finished } = useDesign(data);
     /* 设计师模块逻辑 */
     const selectDesigner = (id: number) => {
       routerPush("/page/im/detail", { id });
@@ -74,10 +97,14 @@ export default defineComponent({
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     .design-item {
-      text-align: center;
-      line-height: 8rem;
       background: #fff;
       margin: 0.5rem;
+      font-size: 15px;
+      color: #456;
+      .van-icon {
+        margin: 0 0.5rem;
+        margin-top: 0.5rem;
+      }
     }
   }
 }

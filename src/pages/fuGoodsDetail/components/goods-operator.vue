@@ -3,15 +3,18 @@
     <van-col span="12" class="goods-operator-left">
       <van-row>
         <van-col span="5">
-          <van-icon name="like-o"></van-icon>
+          <van-icon
+            color="var(--custom-primary-color)"
+            name="like-o"
+          ></van-icon>
           <span>点赞</span>
         </van-col>
         <van-col span="5">
-          <van-icon name="star-o" />
+          <van-icon color="var(--custom-primary-color)" name="star-o" />
           <span>收藏</span>
         </van-col>
         <van-col span="5">
-          <van-icon name="arrow-left" />
+          <van-icon color="var(--custom-primary-color)" name="arrow-left" />
           <span>转发</span>
         </van-col>
       </van-row>
@@ -42,7 +45,6 @@ export default defineComponent({
     .van-row {
       display: flex;
       justify-content: space-around;
-
       text-align: center;
     }
     .van-col {
@@ -52,6 +54,7 @@ export default defineComponent({
       span {
         display: block;
         font-size: 13px;
+        color: var(--custom-primary-color);
       }
     }
   }

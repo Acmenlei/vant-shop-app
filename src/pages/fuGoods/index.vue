@@ -13,7 +13,7 @@
         v-for="item of list"
         :key="item"
       >
-        原创{{ item }}
+         <van-image fit="cover" width="98%" :src="item.src"></van-image>
       </div>
     </van-list>
   </div>
@@ -26,7 +26,26 @@ import { defineComponent, ref, reactive } from "vue";
 export default defineComponent({
   name: "show-case",
   setup() {
-    const list = reactive<any>([]);
+    const list = reactive<any>([
+      {
+        src: "/src/assets/goods1.png"
+      },
+      {
+        src: "/src/assets/goods2.png"
+      },
+      {
+        src: "/src/assets/goods3.png"
+      },
+      {
+        src: "/src/assets/goods4.png"
+      },
+      {
+        src: "/src/assets/goods5.png"
+      },
+      {
+        src: "/src/assets/goods6.png"
+      }
+    ]);
     const loading = ref(false);
     const finished = ref(false);
 
@@ -36,7 +55,7 @@ export default defineComponent({
     const onLoad = () => {
       setTimeout(() => {
         for (let i = 0; i < 10; i++) {
-          list.push(list.length + 1);
+          list.push(...list.slice(1,4));
         }
         // 加载状态结束
         loading.value = false;
@@ -68,7 +87,6 @@ export default defineComponent({
     grid-template-columns: 1fr 1fr;
     .showCase-item {
       text-align: center;
-      line-height: 20rem;
       background: #fff;
       margin: 0.5rem;
     }

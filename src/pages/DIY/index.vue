@@ -1,24 +1,58 @@
 <template>
   <div id="diy">
-    <div class="diy-person"></div>
+    <div class="diy-person">
+      <van-image
+        width="100%"
+        src="/src/assets/diy-image.png"
+        fit="cover"
+      ></van-image>
+    </div>
     <div class="diy-price">
-      <div class="diy-price-detail" v-for="item in 5">
-        {{ item }}
+      <div class="diy-price-detail" v-for="item in prices">
+        <van-image
+          round
+          width="20"
+          height="20"
+          fit="cover"
+          src="/src/assets/FU.jpg"
+        />
+        <span>{{ item.price }}</span>
+        <small>{{ item.name }}</small>
+      </div>
+      <div class="diy-price-detail">
+        <van-image
+          round
+          width="20"
+          height="20"
+          fit="cover"
+          src="/src/assets/FU.jpg"
+        /><span>100</span> <small>总价</small>
       </div>
     </div>
     <div class="diy-clothes">
-      <div class="diy-clothes-detail" v-for="item in 4">
-        {{ item }}
+      <div
+        @click="selectClothes(index)"
+        :class="['diy-clothes-detail']"
+        v-for="(item, index) in clothes"
+      >
+        <van-image
+          fit="cover"
+          height="3rem"
+          width="3rem"
+          round
+          :src="item.src"
+        />
+        <span>{{ item.name }}</span>
       </div>
     </div>
     <div class="diy-operator">
       <div class="upload">上传</div>
       <div class="forward">转发</div>
       <div>
-        <van-button color="var(--custom-primary-color)" url="/vant/mobile.html"
+        <van-button round color="var(--custom-primary-color)"
           >保存画稿</van-button
         >
-        <van-button color="var(--custom-primary-color)" to="index"
+        <van-button round color="var(--custom-primary-color)"
           >立即生成</van-button
         >
       </div>
@@ -27,12 +61,58 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 
 export default defineComponent({
   name: "diy",
   setup() {
-    return {};
+    const prices = reactive([
+      {
+        name: "款式",
+        price: 10,
+      },
+      {
+        name: "面料",
+        price: 20,
+      },
+      {
+        name: "细节",
+        price: 30,
+      },
+      {
+        name: "图案",
+        price: 40,
+      },
+    ]);
+    const clothes = reactive([
+      {
+        src: "/src/assets/4.png",
+        name: "款式",
+      },
+      {
+        src: "/src/assets/clothes1.png",
+        name: "面料",
+      },
+      {
+        src: "/src/assets/clothes3.png",
+        name: "尺寸",
+      },
+      {
+        src: "/src/assets/clothes4.png",
+        name: "细节",
+      },
+    ]);
+    const currentIndex = ref<number>(0);
+
+    const selectClothes = (index: number) => {
+      currentIndex.value = index;
+    };
+    return {
+      prices,
+      clothes,
+      currentIndex,
+      selectClothes,
+    };
   },
 });
 </script>
@@ -40,13 +120,11 @@ export default defineComponent({
 <style lang='scss' scoped>
 #diy {
   width: 90vw;
-  height: 60vh;
   margin: 1rem auto;
 
   .diy-person {
     width: 100%;
     height: 100%;
-    background: #999;
   }
   .diy-clothes,
   .diy-price {
@@ -58,8 +136,12 @@ export default defineComponent({
     .diy-price-detail {
       flex: 1;
       background: #fff;
-      padding: 2rem;
+      width: 2rem;
+      padding: 1rem 0;
       border: 1px solid #f8f8f8;
+      small {
+        display: block;
+      }
     }
   }
   .diy-clothes {
@@ -67,9 +149,11 @@ export default defineComponent({
     .diy-clothes-detail {
       flex: 1;
       background: #fff;
-      border-radius: 50%;
-      padding: 2rem;
+      padding: 1rem;
       margin: 0.2rem;
+      &:nth-child(1) {
+        border: 1px solid var(--custom-primary-color);
+      }
     }
   }
   .diy-operator {

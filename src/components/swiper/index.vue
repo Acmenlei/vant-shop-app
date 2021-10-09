@@ -6,13 +6,13 @@
     height="200"
   >
     <van-swipe-item
-    v-for="(item, index) in 5"
+    v-for="(item, index) in 6"
     :key="index"
       ><van-image
         width="100%"
         height="100%"
         fit="cover"
-        src="https://img.yzcdn.cn/vant/cat.jpeg"
+        :src="`/src/assets/swiper${item+1}.jpg`"
     /></van-swipe-item>
   </van-swipe>
 </template>

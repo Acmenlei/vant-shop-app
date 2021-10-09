@@ -1,7 +1,7 @@
 <template>
   <div id="fuGoods-detail">
     <!-- 商品轮播图 -->
-    <van-image src="/src/assets/fu-goods-detail.png"></van-image>
+    <van-image width="100%" fit="cover" src="/src/assets/goods4.png"></van-image>
     <div class="fuGoods-detail-introduce">
       <goods-price />
       <goods-author />
@@ -24,6 +24,6 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 .fuGoods-detail-introduce {
-  margin-left: .6rem;
+  margin-left: 1rem;
 }
 </style>
