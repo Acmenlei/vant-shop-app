@@ -37,13 +37,13 @@ const MenuGridRoutes: RouteRecordRaw = {
         },
         {
             name: '原创预售橱窗',
-            path: '/menuGrid/showCase',
+            path: '/menuGrid/fuGoods',
             meta: {
-                code: 'showCase',
+                code: 'fuGoods',
                 icon: 'friends-o',
                 title: "原创预售橱窗"
             },
-            component: () => import('@/pages/showCase/index.vue')
+            component: () => import('@/pages/fuGoods/index.vue')
         },
         {
             name: 'FU充值中心',

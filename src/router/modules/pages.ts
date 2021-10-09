@@ -16,6 +16,16 @@ const PagesRoutes: RouteRecordRaw = {
             component: () => import('@/pages/imDetail/index.vue')
         },
         {
+            name: '原创橱窗详情',
+            path: '/page/fuGoods/detail',
+            meta: {
+                code: 'showCaseDetail',
+                icon: 'showCaseDetail',
+                title: "原创橱窗详情"
+            },
+            component: () => import('@/pages/fuGoodsDetail/index.vue')
+        },
+        {
             name: '我的3D形象',
             path: '/page/profile/3d-image',
             meta: {

@@ -6,9 +6,12 @@
     finished-text="没有更多了"
     @load="onLoad"
   >
-    <div class="design-item" v-for="item in list" :key="item">
-      <img :src="item.src">
-    </div>
+    <img
+      class="waterfull-item"
+      v-for="item in list"
+      :key="item"
+      :src="item.src"
+    />
   </van-list>
 </template>
 
@@ -34,7 +37,6 @@ export default defineComponent({
       {
         src: "/src/assets/logo.png",
       },
-      
     ]);
     const loading = ref(false);
     const finished = ref(false);
@@ -64,7 +66,20 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 .waterfull {
-  display: flex;
-  flex-direction: column;
+  -moz-column-count: 2;
+  /* Firefox */
+  -webkit-column-count: 24;
+  /* Safari 和 Chrome */
+  column-count: 2;
+  -moz-column-gap: 0;
+  -webkit-column-gap: 0;
+  column-gap: 0;
+  .waterfull-item {
+    padding: 1em;
+    width: 80%;
+    -moz-page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 </style>

@@ -7,7 +7,12 @@
       finished-text="没有更多了"
       @load="onLoad"
     >
-      <div class="showCase-item" v-for="item of list" :key="item">
+      <div
+        @click="viewFUGoods(item)"
+        class="showCase-item"
+        v-for="item of list"
+        :key="item"
+      >
         原创{{ item }}
       </div>
     </van-list>
@@ -15,6 +20,7 @@
 </template>
 
 <script lang='ts'>
+import { routerPush } from "@/router/scripts/router-trigger";
 import { defineComponent, ref, reactive } from "vue";
 
 export default defineComponent({
@@ -24,12 +30,14 @@ export default defineComponent({
     const loading = ref(false);
     const finished = ref(false);
 
+    const viewFUGoods = (id: number) =>
+      routerPush("/page/fuGoods/detail", { id });
+
     const onLoad = () => {
       setTimeout(() => {
         for (let i = 0; i < 10; i++) {
           list.push(list.length + 1);
         }
-
         // 加载状态结束
         loading.value = false;
 
@@ -45,6 +53,7 @@ export default defineComponent({
       onLoad,
       loading,
       finished,
+      viewFUGoods,
     };
   },
 });
@@ -61,14 +70,14 @@ export default defineComponent({
       text-align: center;
       line-height: 20rem;
       background: #fff;
-      margin: .5rem;
+      margin: 0.5rem;
     }
     .showCase-item:nth-child(2n) {
-        margin-left: 0;
-        margin-bottom: 0;
+      margin-left: 0;
+      margin-bottom: 0;
     }
     .showCase-item:nth-child(2n-1) {
-        margin-bottom: 0;
+      margin-bottom: 0;
     }
   }
 }

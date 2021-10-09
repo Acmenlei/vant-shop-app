@@ -8,7 +8,7 @@ export const TabbarWhiteRoutes: string[] = [
     "/menuGrid/design",
     "/menuGrid/diy",
     "/menuGrid/fuCommunity",
-    "/menuGrid/showCase",
+    "/menuGrid/fuGoods",
     "/menuGrid/fuTopCenter",
     "/menuGrid/personalWorks",
     "/menuGrid/fuFactory",
@@ -16,12 +16,14 @@ export const TabbarWhiteRoutes: string[] = [
     "/menuGrid/customDomain",
     "/page/im/detail",
     "/page/profile/3d-image",
+    "/page/fuGoods/detail",
 ]
 
 // searchBar不显示路由 
 export const SearchBarWhiteRoutes: string[] = [
     "/menuGrid/diy",
     "/page/im/detail",
+    "/page/fuGoods/detail",
     "/profile",
     "/page/profile/3d-image",
     "/menuGrid/fuTopCenter",
