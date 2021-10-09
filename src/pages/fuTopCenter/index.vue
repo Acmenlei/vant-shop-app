@@ -1,17 +1,55 @@
 <template>
-    <div id="topCenter">
-        充值中心
+  <div id="topCenter">
+    <div class="user-icons">
+      <van-icon
+        size="40"
+        name="user-circle-o"
+        color="var(--custom-primary-color)"
+      />
+      <div class="coins-count">金币{{ 160 }}</div>
     </div>
+    <div class="user-icons-logo">
+      <van-image src="/src/assets/fu-coins.png"/>
+    </div>
+    <div class="topCenter-images">
+      <van-image src="/src/assets/fu-coins-image.png"/>
+      <van-image src="/src/assets/fu-coins-image.png"/>
+      <van-image src="/src/assets/fu-coins-image.png"/>
+    </div>
+  </div>
 </template>
 
 <script lang='ts'>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-   name: 'top-center'
-})
+  name: "top-center",
+});
 </script>
 
 <style lang='scss' scoped>
-
+#topCenter {
+  text-align: center;
+  .user-icons,
+  .user-icons-logo,
+  .topCenter-images {
+    width: 95vw;
+    margin: 0 auto;
+  }
+  .topCenter-images {
+    margin-top: 2rem;
+  }
+  .user-icons {
+    display: flex;
+    align-items: center;
+    margin: 0.8rem 1.5rem;
+    .coins-count {
+      color: white;
+      padding: 0.5rem;
+      margin-left: 1rem;
+      border-radius: 1rem;
+      background: var(--custom-primary-color);
+    }
+  }
+}
 </style>

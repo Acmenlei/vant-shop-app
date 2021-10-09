@@ -52,7 +52,7 @@ const TabbarRoutes: RouteRecordRaw = {
             meta: {
                 code: 'profile',
                 icon: 'user-o',
-                title: '个人中心'
+                title: '我的'
             },
             component: () => import('@/pages/profile/index.vue')
         },

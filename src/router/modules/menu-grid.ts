@@ -1,7 +1,6 @@
-// import Layout from ""
 import { RouteRecordRaw } from "vue-router"
 
-const PagesRoutes: RouteRecordRaw = {
+const MenuGridRoutes: RouteRecordRaw = {
     name: 'menuGrid',
     path: '/menuGrid',
     component: () => import("@/layout/basic-layout.vue"),
@@ -99,4 +98,4 @@ const PagesRoutes: RouteRecordRaw = {
     ]
 }
 
-export default PagesRoutes;
+export default MenuGridRoutes;

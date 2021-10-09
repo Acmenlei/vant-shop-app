@@ -1,27 +1,36 @@
 <template>
   <div id="design">
-    <van-sticky offset-top="3.2rem">
-      <menu-slider-bar />
-    </van-sticky>
-    <div v-if="active == 0">
-      <types />
-    </div>
-    <div v-if="active == 1">
-      <clothes-style />
-    </div>
-    <div v-if="active == 2">
-      <van-list
-        class="design-container"
-        v-model:loading="loading"
-        :finished="finished"
-        finished-text="没有更多了"
-        @load="onLoad"
-      >
-        <div class="design-item" v-for="item of list" :key="item">
-          设计师{{ item }}
-        </div>
-      </van-list>
-    </div>
+    <van-row>
+      <van-col span="4">
+        <van-sticky offset-top="3.2rem">
+          <menu-slider-bar style="width: 100%" />
+        </van-sticky>
+      </van-col>
+      <van-col span="19">
+        <!-- 类型 -->
+        <types v-if="active == 0" />
+        <!-- 款式 -->
+        <clothes-style v-if="active == 1" />
+        <!-- 设计师 -->
+        <van-list
+          v-if="active == 2"
+          class="design-container"
+          v-model:loading="loading"
+          :finished="finished"
+          finished-text="没有更多了"
+          @load="onLoad"
+        >
+          <div
+            class="design-item"
+            @click="selectDesigner(item)"
+            v-for="item of list"
+            :key="item"
+          >
+            设计师{{ item }}
+          </div>
+        </van-list>
+      </van-col>
+    </van-row>
   </div>
 </template>
 
@@ -33,6 +42,7 @@ import ClothesStyle from "./components/clothes-style.vue";
 import Types from "./components/types.vue";
 import { useSliderBar } from "./scritps/slider-bar";
 import { useDesign } from "./scritps";
+import { routerPush } from "@/router/scripts/router-trigger";
 
 export default defineComponent({
   components: { MenuSliderBar, ClothesStyle, Types },
@@ -40,13 +50,17 @@ export default defineComponent({
   setup() {
     const { active } = useSliderBar();
     const { onLoad, list, loading, finished } = useDesign();
-
+    /* 设计师模块逻辑 */
+    const selectDesigner = (id: number) => {
+      routerPush("/page/im/detail", { id });
+    };
     return {
       active,
       list,
       onLoad,
       loading,
       finished,
+      selectDesigner,
     };
   },
 });
@@ -54,7 +68,6 @@ export default defineComponent({
 
 <style lang='scss' >
 #design {
-  display: flex;
   .design-container {
     margin-left: 1rem;
     display: grid;
@@ -64,7 +77,6 @@ export default defineComponent({
       text-align: center;
       line-height: 8rem;
       background: #fff;
-      width: 8rem;
       margin: 0.5rem;
     }
   }

@@ -14,9 +14,15 @@ export const TabbarWhiteRoutes: string[] = [
     "/menuGrid/fuFactory",
     "/menuGrid/personalOrder",
     "/menuGrid/customDomain",
+    "/page/im/detail",
+    "/page/profile/3d-image",
 ]
 
-// searchBar 不显示路由 
+// searchBar不显示路由 
 export const SearchBarWhiteRoutes: string[] = [
-    "/menuGrid/diy"
+    "/menuGrid/diy",
+    "/page/im/detail",
+    "/profile",
+    "/page/profile/3d-image",
+    "/menuGrid/fuTopCenter",
 ]

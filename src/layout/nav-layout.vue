@@ -60,6 +60,8 @@ export default defineComponent({
   name: "header-layout",
   setup() {
     const route = useRoute();
+    console.log(route.path);
+    
     const { title, onBack } = useNavigator();
     const { value } = useSearch();
     /* 计算属性 */
