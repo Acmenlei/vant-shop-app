@@ -36,7 +36,7 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script setup lang='ts'>
 import { defineComponent, ref } from "vue";
 import { LoginForm } from "@/types";
 import { Toast } from "vant";
@@ -44,10 +44,10 @@ import { routerReplace } from "@/router/scripts/router-trigger";
 import LoginLogo from "./components/login-logo.vue";
 import OtherLoginMethod from "./components/other-login-method.vue";
 
-export default defineComponent({
-  name: "login",
-  components: { OtherLoginMethod, LoginLogo },
-  setup() {
+// export default defineComponent({
+  // name: "login",
+  // components: { OtherLoginMethod, LoginLogo },
+  // setup() {
     const username = ref("");
     const password = ref("");
 
@@ -60,13 +60,13 @@ export default defineComponent({
       }, 2000);
     };
 
-    return {
-      username,
-      password,
-      onSubmit,
-    };
-  },
-});
+//     return {
+//       username,
+//       password,
+//       onSubmit,
+//     };
+//   },
+// });
 </script>
 
 <style lang='scss' scoped>
